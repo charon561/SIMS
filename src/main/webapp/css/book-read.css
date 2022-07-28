@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.btn > input{
+ width:80px;
+ height:30px;
+ font-size:13px;
+}

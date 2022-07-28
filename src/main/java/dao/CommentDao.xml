@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.CommentDao">
+	<resultMap type="pojo.Comment" id="resultCommentMap">
+		<id property="id" column="id"/>
+		<result property="ip" column="ip"/>
+		<result property="nick" column="nick"/>
+		<result property="content" column="content"/>
+		<result property="date" column="date"/>
+		<association property="book" javaType="pojo.Book">
+		<id property="isbn" column="isbn"/>
+		<result property="title" column="title"/>
+		<result property="author" column="author"/>
+		<result property="introduction" column="introduction"/>
+		<result property="price" column="price"/>
+		<result property="publisher" column="publisher"/>
+		<result property="photo" column="photo"/>
+		<result property="publishcationDate" column="publishcationDate"/>
+		</association>
+	</resultMap>
+	<select id="queryAllComment" resultMap="resultCommentMap">
+		select * from comment,book where comment.isbn=book.isbn
+	</select>
+	<select id="queryCommentByIsbn" resultMap="resultCommentMap">
+		select * from comment,book where isbn=#{isbn} and book.isbn=comment.book_isbn
+	</select>
+	<insert id="insertComment">
+		insert into comment(book_isbn,ip,nick,content,date) 
+		values(#{isbn},'192.168.1.10',#{nick},#{content},now())
+	</insert>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao">
+	<insert id="register" parameterType="pojo.User">
+		insert into user(username,password,permission) value(#{username},#{password},0)
+	</insert>
+	<select id="queryAllUser" resultType="pojo.User">
+		select * from user
+	</select>
+	<select id="Login" resultType="pojo.User">
+		select * from user where username=#{username} and password=#{password}
+	</select>
+	<select id="queryUserByUsername" resultType="pojo.User">
+		select * from user where username=#{username}
+	</select>
+	<delete id="deleteUser" parameterType="String">
+		delete from user where username=#{username}
+	</delete>
+	<update id="updateUser">
+		update user
+			set username=#{username},password=#{password}
+			where id=#{id}
+	</update>
+</mapper>
