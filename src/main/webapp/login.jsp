@@ -1,34 +1,84 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel=stylesheet>
-<title></title>
+<meta charset="utf-8">
+<title>学生信息管理系统</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+
+<style>
+.login-box {
+  width: 100%;
+  height: 500px;
+  margin: 0px auto;
+  border-bottom: 3px #006dc0 solid;
+  background: url("${pageContext.request.contextPath}/img/login.jpg") no-repeat 50% 0;
+  position: relative;
+  overflow: hidden;
+}
+.login{
+	position:absolute;
+	top:50%;
+	margin-top: -150px;
+	left:50%;
+	margin-left: -150px;
+	/* 居中*/
+	
+	background-color: whitesmoke;
+	width:300px;
+	height:250px;
+	border-radius:25px;  /*边框为圆 */
+	text-align:center;
+	padding:5px 40px;
+	box-sizing:border-box;
+}
+</style>
 </head>
 <body>
-<h3>${msg }</h3>
-<div class="text-center">
-<h1 style="color:black; font-size:50px;">图书管理系统</h1>
-<hr style="margin-bottom:100px;">
-</div>
-<div class="box">
-	<h2>账户登录</h2>
-	<form action="login.do" method="post">
-	<div class="input-box">
-	账号:<input type = "text" name="username"><br>
+	<div class="text-center">
+		<img style="height:100%" src="${pageContext.request.contextPath}/img/logo.png" />
 	</div>
-	<div class="input-box">
-	密码:<input type="password" name="password"><br>
+	<hr>
+	<div class="container-fluid login-box">
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+		<div class="row" >
+			<div class="col-md-4 col-md-offset-7">
+				<div class="login">
+				<br>
+					<div class="h4 text-center">用户登录</div>
+					<form class="form-horizontal" role="form" action="login.do" method="post">
+						<div class="form-group">
+							<label for="firstname" class="col-sm-3 control-label">账号</label>
+								<div class="col-md-9">
+     			 					<input type="text" class="form-control" name="username" placeholder="请输入账号">
+    							</div>
+  						</div>
+  						<div class="form-group">
+    						<label for="lastname" class="col-sm-3 control-label">密码</label>
+    						<div class="col-sm-9">
+      							<input type="password" class="form-control" name="password" placeholder="请输入密码">
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<div class="col-sm-offset-1 col-sm-10">
+      							<label class="radio-inline">
+      								<input type="radio" checked name="type" value="学生"/>学生
+      							</label>
+      							<label class="radio-inline">
+      								<input type="radio" name="type" value="教职工"/>教职工
+      							</label>
+    						</div>
+  						</div>
+  						<div class="form-group">
+    						<div class="col-sm-offset-2 col-sm-10">
+      							<button type="submit" class="btn btn-info">登录</button>
+    						</div>
+  						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="btn-box">
-		<input type="submit" value ="登录">
-		<input type="button" onclick="window.location.href='${pageContext.request.contextPath}/register.jsp'" value="注册">
-	</div>
-</form>
-</div>
 </body>
 </html>
