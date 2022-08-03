@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import pojo.Student;
+
 //import org.apache.ibatis.annotations.Param;
 
 import pojo.User;
@@ -12,7 +14,7 @@ public interface UserDao {
 	
 	public List<User> queryAllUser();
 	
-	public List<User> queryUserByUsername(String username);
+	public Student queryUserByUsername(String username);
 	
 	public int deleteUser(String username);
 	

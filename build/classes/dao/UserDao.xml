@@ -9,10 +9,10 @@
 		select * from user
 	</select>
 	<select id="Login" resultType="pojo.User">
-		select * from user_ordinary where username=#{username} and password=#{password}
+		select * from user where username=#{username} and password=#{password}
 	</select>
-	<select id="queryUserByUsername" resultType="pojo.User">
-		select * from user where username=#{username}
+	<select id="queryUserByUsername" resultType="pojo.Student">
+		select * from student where Sno=#{username}
 	</select>
 	<delete id="deleteUser" parameterType="String">
 		delete from user where username=#{username}

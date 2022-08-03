@@ -5,8 +5,10 @@
 <head>
 <meta charset="utf-8">
 <title>学生信息管理系统</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
+<style type="text/css">
+#main-top{ width:100%; height:70px; background:url(${pageContext.request.contextPath}/img/main-top-bg.png) no-repeat right center #2d62a3; border-bottom:1px #245086 solid }
+</style>
 <style>
 .login-box {
   width: 100%;
@@ -36,9 +38,13 @@
 </style>
 </head>
 <body>
+<script src="${pageContext.request.contextPath}/bootstrap/js/jquery-3.4.1.js"></script>
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<div id="main-top">
 	<div class="text-center">
 		<img style="height:100%" src="${pageContext.request.contextPath}/img/logo.png" />
 	</div>
+</div>
 	<hr>
 	<div class="container-fluid login-box">
 	<br><br><br><br><br><br><br><br><br><br><br><br>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.UserDao;
+import pojo.Student;
 import pojo.User;
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
 		return this.userDao.Login(username, password);
 	}
 	
-	public List<User> queryUserByUsername(String username) {
+	public Student queryUserByUsername(String username) {
 		return this.userDao.queryUserByUsername(username);
 	}
 	

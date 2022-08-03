@@ -10,13 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// 该方法是在整个请求执行即渲染结束后执行，通过此方法实现一些资源清理，记录日志信息等工作
+		// 璇ユ柟娉曟槸鍦ㄦ暣涓姹傛墽琛屽嵆娓叉煋缁撴潫鍚庢墽琛岋紝閫氳繃姝ゆ柟娉曞疄鐜颁竴浜涜祫婧愭竻鐞嗭紝璁板綍鏃ュ織淇℃伅绛夊伐浣�
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView mv)
 			throws Exception {
-		////该方法是在控制器方法调用执行之后，且视图解析还没进行之前
+		////璇ユ柟娉曟槸鍦ㄦ帶鍒跺櫒鏂规硶璋冪敤鎵ц涔嬪悗锛屼笖瑙嗗浘瑙ｆ瀽杩樻病杩涜涔嬪墠
 
 	}
 
@@ -30,7 +30,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if(((String)session.getAttribute("permission")).equals("1")) {
 			return true;
 		}
-		request.setAttribute("msg","请先进行管理员登录");
+		System.out.print("1");
+		request.setAttribute("msg","璇峰厛杩涜绠＄悊鍛樼櫥褰�");
 		request.getRequestDispatcher("books_read.jsp").forward(request, response);
 		return false;
 		
