@@ -3,16 +3,16 @@ package pojo;
 import java.util.Date;
 
 public class Student {
-	private String sno;
+	private String Sno;
 	 private String name;
 	 private Date date; //出生日期
 	 private String nation;
 	 private String political_outlook;
 	 public String getSno() {
-		return sno;
+		return Sno;
 	}
-	public void setSno(String sno) {
-		this.sno = sno;
+	public void setSno(String Sno) {
+		this.Sno = Sno;
 	}
 	public String getName() {
 		return name;
@@ -56,11 +56,11 @@ public class Student {
 	public void setDormitory(String dormitory) {
 		this.dormitory = dormitory;
 	}
-	public String getHome_address() {
-		return home_address;
+	public String getHome_adress() {
+		return home_adress;
 	}
-	public void setHome_address(String home_address) {
-		this.home_address = home_address;
+	public void setHome_adress(String home_adress) {
+		this.home_adress = home_adress;
 	}
 	public String getHome_phone() {
 		return home_phone;
@@ -95,10 +95,17 @@ public class Student {
 	private String native_place;
 	 private String phone_number;
 	 private String dormitory;
-	 private String home_address;
+	 private String home_adress;
 	 private String home_phone;
 	 private String parent_phone;
 	 private String is_only_child;
 	 private String specialty;
 	 private String hobby;
+	 private String goals;
+	public String getGoals() {
+		return goals;
+	}
+	public void setGoals(String goals) {
+		this.goals = goals;
+	}
 }

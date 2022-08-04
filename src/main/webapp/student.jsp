@@ -128,7 +128,7 @@
 									<th>是否为独生子女</th>
 									<td>${userByUsername.is_only_child }</td>
 									<th>家庭地址</th>
-									<td colspan="2">${userByUsername.home_address }</td>
+									<td colspan="2">${userByUsername.home_adress }</td>
 								</tr>					
 			
 													
@@ -144,7 +144,7 @@
 											
 								<tr>
 									<th>个人理想与目标:</th>
-									<td colspan="4"></td>
+									<td colspan="4">${userByUsername.goals }</td>
 								</tr>
 								
 								<tr>

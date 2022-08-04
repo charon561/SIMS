@@ -34,7 +34,11 @@ public class UserServiceImpl implements UserService {
 		return this.userDao.deleteUser(username);
 	}
 	
-	public int updateUser(@Param("username")String username,@Param("password")String password,@Param("id") int id) {
-		return this.userDao.updateUser(username, password, id);
-		}
+	public int updateUser(Student stu) {
+		return this.userDao.updateUser(stu);
+	}
+	
+	public int updatePassword( @Param("new_password")String new_password,@Param("username")String username) {
+		return this.userDao.updatePassword(new_password,username);
+	}
 }

@@ -73,44 +73,44 @@
 		            <h3 class="panel-title ">修改资料</h3>
 		        </div>    
 		        <div class="panel-body">
-		       		<form action="#" method="post" enctype="multipart/form-data">
+		       		<form action="revise.do" method="post" enctype="multipart/form-data">
 		                <div class="input-group">
 							<span class="input-group-addon">政治面貌</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="political_outlook" value="${userByUsername.political_outlook }">
 							<span class="input-group-addon">联系电话</span>
-							<input type="text" class="form-control">  
+							<input type="text" class="form-control" name="phone_number" value="${userByUsername.phone_number }">  
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">家庭电话</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="home_phone" value="${userByUsername.home_phone }">
 							<span class="input-group-addon">家长电话</span>
-							<input type="text" class="form-control">  
+							<input type="text" class="form-control" name="parent_phone" value="${userByUsername.parent_phone }">  
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">家庭地址</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="home_adress" value="${userByUsername.home_adress }">
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">个人特长</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="">
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">兴趣爱好</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="hobby" value="${userByUsername.hobby }">
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">人生目标</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" name="goals" value="${userByUsername.goals }">
 		                </div>
 		                <br>
 		                <div class="input-group">
 		                    <span  class="input-group-addon">是否为独生子女</span>
-		                    		<select name="type_id" class="form-control" >
+		                    		<select name="is_only_child" class="form-control" >
 		                    			<option value="否">否</option>
 										<option value="是">是</option>
 									</select>

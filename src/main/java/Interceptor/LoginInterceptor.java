@@ -21,16 +21,15 @@ public class LoginInterceptor implements HandlerInterceptor {
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest request,HttpServletResponse response ,Object handler)throws Exception{
+	public boolean preHandle(HttpServletRequest request,HttpSession session,HttpServletResponse response ,Object handler)throws Exception{
 		String uri = request.getRequestURI();
 		if(uri.indexOf("/login")>=0) {
 			return true;
 		}
-		HttpSession session = request.getSession();
-		if(((String)session.getAttribute("permission")).equals("1")) {
+		String user = (String) session.getAttribute("user");
+		if(user != null) {
 			return true;
 		}
-		System.out.print("1");
 		request.setAttribute("msg","璇峰厛杩涜绠＄悊鍛樼櫥褰�");
 		request.getRequestDispatcher("books_read.jsp").forward(request, response);
 		return false;

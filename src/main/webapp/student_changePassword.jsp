@@ -57,11 +57,11 @@
 			    </div>
 			    <div class="panel-body">
 					<ul class="list-group">
-					   	<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>${user.type } ${user.username }</li>
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value="${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span>${ip }</li>
+					   	<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>  ${user.type } ${user.username }</li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value=" ${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span> ${ip }</li>
 					</ul>
-					<a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-primary btn-lg text-center">
+					<a href="logout.do" class="btn btn-primary btn-lg text-center">
 						<span class="glyphicon glyphicon-off"></span>
 					</a>
 			    </div>
@@ -73,15 +73,15 @@
 	            <h3 class="panel-title ">修改密码</h3>
 	        </div>    
 	        <div class="panel-body">
-	       		<form action="#" method="post" enctype="multipart/form-data">
+	       		<form action="updatePassword.do" method="post" enctype="multipart/form-data">
 	                <div class="input-group">
 	                    <span  class="input-group-addon">原密码</span>
-	                    <input type="password" class="form-control" name="password_1">
+	                    <input type="password" class="form-control" name="old_password">
 	                </div>
 	  				<br>
 	                 <div class="input-group">
 	                    <span  class="input-group-addon">新密码</span>
-	                    <input type="password" class="form-control" name="password_2">
+	                    <input type="password" class="form-control" name="new_password">
 	                </div>
 	                <br>    
 					<!-- 模态框（Modal） -->

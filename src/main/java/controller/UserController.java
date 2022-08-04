@@ -51,4 +51,49 @@ public class UserController {
 		return "student";
 	}
 	
+	@RequestMapping("revise.do")
+	public String Login(Student stu, Model model,HttpSession session, HttpServletResponse response) throws IOException {
+		User user=(User) session.getAttribute("user");
+		stu.setSno(user.getUsername()); // 读入学生账号
+		int a = userService.updateUser(stu); // a 为修改的结果，成功或者失败
+		if(a == 1) {
+			Student b = userService.queryUserByUsername(user.getUsername());  // 更新修改后的学生信息
+			session.setAttribute("userByUsername", b);
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html;charset=utf-8");
+			out.print("<script>alert('修改成功！');window.location='student.jsp'</script>");
+			out.flush();
+		}
+		else {
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html;charset=utf-8");
+			out.print("<script>alert('修改失败！');window.location='student_modifyInformation.jsp'</script>");
+			out.flush();
+		}
+		return "student";
+	}
+	
+	@RequestMapping("updatePassword.do")
+	public String Login(String old_password, String new_password, Model model,HttpSession session, HttpServletResponse response) throws IOException {
+		User user=(User) session.getAttribute("user"); 
+		String username=user.getUsername();  // 读入学生账号
+		int a = userService.updatePassword(new_password, username);
+		if(a == 1) {
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html;charset=utf-8");
+			out.print("<script>alert('修改成功！');window.location='student.jsp'</script>");
+			out.flush();
+		}
+		else {
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html;charset=utf-8");
+			out.print("<script>alert('修改失败！');window.location='student_changePassword.jsp'</script>");
+			out.flush();
+		}
+		return "student";
+	}
 }

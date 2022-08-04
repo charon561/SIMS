@@ -22,6 +22,8 @@ public interface UserDao {
 	
 	public User Login(@Param("username")String username,@Param("password")String password);
 	
-	public int updateUser(@Param("username")String username,@Param("password")String password,@Param("id") int id);
-
+	public int updateUser(Student stu);
+	
+	public int updatePassword(@Param("new_password")String new_password,@Param("username")String username);
+	
 }
