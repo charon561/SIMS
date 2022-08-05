@@ -14,7 +14,7 @@ public interface UserDao {
 	
 	public List<User> queryAllUser();
 	
-	public Student queryUserByUsername(String username);
+	public Student queryStudentByusername(String username);
 	
 	public int deleteUser(String username);
 	
@@ -22,7 +22,7 @@ public interface UserDao {
 	
 	public User Login(@Param("username")String username,@Param("password")String password);
 	
-	public int updateUser(Student stu);
+
 	
 	public int updatePassword(@Param("new_password")String new_password,@Param("username")String username);
 	

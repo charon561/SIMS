@@ -15,7 +15,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	public int register(User user) {
-		// TODO Auto-generated method stub
 		return this.userDao.register(user);
 	}
 	public  List<User> queryAllUser(){
@@ -26,16 +25,12 @@ public class UserServiceImpl implements UserService {
 		return this.userDao.Login(username, password);
 	}
 	
-	public Student queryUserByUsername(String username) {
-		return this.userDao.queryUserByUsername(username);
+	public Student queryStudentByusername(String username) {
+		return this.userDao.queryStudentByusername(username);
 	}
 	
 	public int deleteUser(String username) {
 		return this.userDao.deleteUser(username);
-	}
-	
-	public int updateUser(Student stu) {
-		return this.userDao.updateUser(stu);
 	}
 	
 	public int updatePassword( @Param("new_password")String new_password,@Param("username")String username) {

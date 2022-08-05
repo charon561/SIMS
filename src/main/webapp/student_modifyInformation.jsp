@@ -57,11 +57,11 @@
 			    </div>
 			    <div class="panel-body">
 					<ul class="list-group">
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>${user.type } ${user.username }</li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>  ${user.type } ${user.username }</li>
 					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value="${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span>${ip }</li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span> ${ip }</li>
 					</ul>
-					<a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-primary btn-lg text-center">
+					<a href="logout.do" class="btn btn-primary btn-lg text-center">
 						<span class="glyphicon glyphicon-off"></span>
 					</a>
 			    </div>
@@ -73,24 +73,24 @@
 		            <h3 class="panel-title ">修改资料</h3>
 		        </div>    
 		        <div class="panel-body">
-		       		<form action="revise.do" method="post" enctype="multipart/form-data">
+		       		<form action="updateStudent.do" method="post" enctype="multipart/form-data">
 		                <div class="input-group">
 							<span class="input-group-addon">政治面貌</span>
-							<input type="text" class="form-control" name="political_outlook" value="${userByUsername.political_outlook }">
+							<input type="text" class="form-control" name="political_outlook" value="${queryStudent.political_outlook }">
 							<span class="input-group-addon">联系电话</span>
-							<input type="text" class="form-control" name="phone_number" value="${userByUsername.phone_number }">  
+							<input type="text" class="form-control" name="phone_number" value="${queryStudent.phone_number }">  
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">家庭电话</span>
-							<input type="text" class="form-control" name="home_phone" value="${userByUsername.home_phone }">
+							<input type="text" class="form-control" name="home_phone" value="${queryStudent.home_phone }">
 							<span class="input-group-addon">家长电话</span>
-							<input type="text" class="form-control" name="parent_phone" value="${userByUsername.parent_phone }">  
+							<input type="text" class="form-control" name="parent_phone" value="${queryStudent.parent_phone }">  
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">家庭地址</span>
-							<input type="text" class="form-control" name="home_adress" value="${userByUsername.home_adress }">
+							<input type="text" class="form-control" name="home_adress" value="${queryStudent.home_adress }">
 		                </div>
 		  				<br>
 		                <div class="input-group">
@@ -100,12 +100,12 @@
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">兴趣爱好</span>
-							<input type="text" class="form-control" name="hobby" value="${userByUsername.hobby }">
+							<input type="text" class="form-control" name="hobby" value="${queryStudent.hobby }">
 		                </div>
 		  				<br>
 		                <div class="input-group">
 							<span class="input-group-addon">人生目标</span>
-							<input type="text" class="form-control" name="goals" value="${userByUsername.goals }">
+							<input type="text" class="form-control" name="goals" value="${queryStudent.goals }">
 		                </div>
 		                <br>
 		                <div class="input-group">

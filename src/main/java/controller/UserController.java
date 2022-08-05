@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +31,7 @@ public class UserController {
 			out.flush();
 		}
 		User a = userService.Login(user.getUsername(), user.getPassword()); // 验证账号密码是否正确
-		Student b = userService.queryUserByUsername(user.getUsername());  // 查找对应的学生
+		Student b = userService.queryStudentByusername(user.getUsername());  // 查找对应的学生
 		if(a == null) {
 			response.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
@@ -45,33 +44,9 @@ public class UserController {
 		Date now = new Date(); // 获取登录时间
 		session.setAttribute("time", now);
 		session.setAttribute("ip", ip);
-		session.setAttribute("userByUsername", b);
+		session.setAttribute("queryStudent", b);
 		session.setAttribute("user", user);
 		
-		return "student";
-	}
-	
-	@RequestMapping("revise.do")
-	public String Login(Student stu, Model model,HttpSession session, HttpServletResponse response) throws IOException {
-		User user=(User) session.getAttribute("user");
-		stu.setSno(user.getUsername()); // 读入学生账号
-		int a = userService.updateUser(stu); // a 为修改的结果，成功或者失败
-		if(a == 1) {
-			Student b = userService.queryUserByUsername(user.getUsername());  // 更新修改后的学生信息
-			session.setAttribute("userByUsername", b);
-			response.setCharacterEncoding("utf-8");
-			PrintWriter out = response.getWriter();
-			response.setContentType("text/html;charset=utf-8");
-			out.print("<script>alert('修改成功！');window.location='student.jsp'</script>");
-			out.flush();
-		}
-		else {
-			response.setCharacterEncoding("utf-8");
-			PrintWriter out = response.getWriter();
-			response.setContentType("text/html;charset=utf-8");
-			out.print("<script>alert('修改失败！');window.location='student_modifyInformation.jsp'</script>");
-			out.flush();
-		}
 		return "student";
 	}
 	
@@ -79,12 +54,21 @@ public class UserController {
 	public String Login(String old_password, String new_password, Model model,HttpSession session, HttpServletResponse response) throws IOException {
 		User user=(User) session.getAttribute("user"); 
 		String username=user.getUsername();  // 读入学生账号
-		int a = userService.updatePassword(new_password, username);
-		if(a == 1) {
+		if(new_password == old_password || new_password.length() < 8)  { // 基本的弱密钥检测
 			response.setCharacterEncoding("utf-8");
 			PrintWriter out = response.getWriter();
 			response.setContentType("text/html;charset=utf-8");
-			out.print("<script>alert('修改成功！');window.location='student.jsp'</script>");
+			out.print("<script>alert('请输入8位以上密码！');window.location='student_changePassword.jsp'</script>");
+			out.flush();
+			return "student_changePassword";
+		}
+		int a = userService.updatePassword(new_password, username);
+		if(a == 1) {
+			session.invalidate();
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html;charset=utf-8");
+			out.print("<script>alert('修改成功！');window.location='login.jsp'</script>");
 			out.flush();
 		}
 		else {
@@ -96,4 +80,10 @@ public class UserController {
 		}
 		return "student";
 	}
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate(); // 注销后消除所有session 参数  ，防止非法登入。
+		return "login";
+	}
+	
 }

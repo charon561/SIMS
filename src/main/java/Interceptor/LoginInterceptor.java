@@ -31,7 +31,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			return true;
 		}
 		request.setAttribute("msg","璇峰厛杩涜绠＄悊鍛樼櫥褰�");
-		request.getRequestDispatcher("books_read.jsp").forward(request, response);
+		request.getRequestDispatcher("books_read.jsp").forward(request, response);   
 		return false;
 		
 	}

@@ -57,8 +57,8 @@
 			    </div>
 			    <div class="panel-body">
 					<ul class="list-group">
-					   	<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>  ${user.type } ${user.username }</li>
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value=" ${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
+						<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>  ${user.type } ${user.username }</li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value="${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
 					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span> ${ip }</li>
 					</ul>
 					<a href="logout.do" class="btn btn-primary btn-lg text-center">

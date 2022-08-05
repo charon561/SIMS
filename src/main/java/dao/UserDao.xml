@@ -11,17 +11,12 @@
 	<select id="Login" resultType="pojo.User">
 		select * from user where username=#{username} and password=#{password}
 	</select>
-	<select id="queryUserByUsername" resultType="pojo.Student">
+	<select id="queryStudentByusername" resultType="pojo.Student">
 		select * from student where Sno=#{username}
 	</select>
 	<delete id="deleteUser" parameterType="String">
 		delete from user where username=#{username}
 	</delete>
-	<update id="updateUser">
-		update student
-		set political_outlook=#{political_outlook}, phone_number=#{phone_number}, home_phone=#{home_phone}, parent_phone=#{parent_phone}, home_adress=#{home_adress}, hobby=#{hobby}, goals=#{goals}, is_only_child=#{is_only_child}
-			where Sno=#{Sno}
-	</update>
 	<update id="updatePassword">
 		update user
 		set password=#{new_password}

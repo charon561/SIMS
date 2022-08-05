@@ -61,11 +61,11 @@
 			    </div>
 			    <div class="panel-body">
 					<ul class="list-group">
-						<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>${user.type } ${user.username }</li>
+						<li class="list-group-item"><span class=" glyphicon glyphicon-user"></span>  ${user.type } ${user.username }</li>
 					    <li class="list-group-item"><span class=" glyphicon glyphicon-time"></span><fmt:formatDate value="${time}" pattern="yyyy-MM-dd HH:mm:ss"/></li>
-					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span>${ip }</li>
+					    <li class="list-group-item"><span class=" glyphicon glyphicon-map-marker"></span> ${ip }</li>
 					</ul>
-					<a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-primary btn-lg text-center">
+					<a href="logout.do" class="btn btn-primary btn-lg text-center">
 						<span class="glyphicon glyphicon-off"></span>
 					</a>
 			    </div>
@@ -82,7 +82,7 @@
 							<thead>
 								<tr>
 									<th class="col-md-2">姓名</th>
-									<td class="col-md-3">${userByUsername.name }</td>
+									<td class="col-md-3">${queryStudent.name }</td>
 									<th class="col-md-2">学号</th>
 									<td class="col-md-3"></td>
 									<th class="col-md-2">照片</th>
@@ -100,35 +100,35 @@
 									<th>出生年月 </th>
 									<td></td>
 									<th>民族</th>
-									<td>${userByUsername.nation }</td>
+									<td>${queryStudent.nation }</td>
 								</tr>
 								
 								<tr>
 									<th>政治面貌</th>
-									<td>${userByUsername.political_outlook }</td>
+									<td>${queryStudent.political_outlook }</td>
 									<th>籍贯</th>
 									<td></td>
 								</tr>
 								
 								<tr>
 									<th>联系电话 </th>
-									<td>${userByUsername.phone_number }</td>
+									<td>${queryStudent.phone_number }</td>
 									<th>宿舍</th>
-									<td>${userByUsername.dormitory }</td>
+									<td>${queryStudent.dormitory }</td>
 								</tr>
 								
 								<tr>
 									<th>家庭电话</th>
-									<td>${userByUsername.home_phone }</td>
+									<td>${queryStudent.home_phone }</td>
 									<th>家长电话</th>
-									<td>${userByUsername.parent_phone }</td>
+									<td>${queryStudent.parent_phone }</td>
 								</tr>
 								
 								<tr>
 									<th>是否为独生子女</th>
-									<td>${userByUsername.is_only_child }</td>
+									<td>${queryStudent.is_only_child }</td>
 									<th>家庭地址</th>
-									<td colspan="2">${userByUsername.home_adress }</td>
+									<td colspan="2">${queryStudent.home_adress }</td>
 								</tr>					
 			
 													
@@ -139,12 +139,12 @@
 			
 								<tr>
 									<th>兴趣爱好</th>
-									<td colspan="4">${userByUsername.hobby }</td>
+									<td colspan="4">${queryStudent.hobby }</td>
 								</tr>
 											
 								<tr>
 									<th>个人理想与目标:</th>
-									<td colspan="4">${userByUsername.goals }</td>
+									<td colspan="4">${queryStudent.goals }</td>
 								</tr>
 								
 								<tr>

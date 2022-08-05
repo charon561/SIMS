@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.StudentDao">
+	<update id="updateStudent">
+		update student
+		set political_outlook=#{political_outlook}, phone_number=#{phone_number}, home_phone=#{home_phone}, parent_phone=#{parent_phone}, home_adress=#{home_adress}, hobby=#{hobby}, goals=#{goals}, is_only_child=#{is_only_child}
+			where Sno=#{Sno}
+	</update>
+	<select id="queryStudent" resultType="pojo.Student">
+		select * from student where Sno=#{Sno}
+	</select>
+</mapper>
